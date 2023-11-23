@@ -1,0 +1,93 @@
+[
+    {
+      "Course_Title": "Introduction to Python Programming",
+      "Instructor_Name": "John Doe",
+      "Course_Image": "https://i.ibb.co/qkJwsqp/pexels-pixabay-265087.jpg",
+      "Course_Price": 49.99,
+      "Brief_Description": "Learn the fundamentals of Python programming.",
+      "Total_Enrollment": 500,
+      "Enrollment_Status": true
+    },
+    {
+      "Course_Title": "Web Development Bootcamp",
+      "Instructor_Name": "Emily Smith",
+      "Course_Image": "https://i.ibb.co/yRDxYgH/pexels-kevin-ku-577585.jpg",
+      "Course_Price": 79.99,
+      "Brief_Description": "Master web development with HTML, CSS, and JavaScript.",
+      "Total_Enrollment": 300,
+      "Enrollment_Status": false
+    },
+    {
+      "Course_Title": "Data Science for Beginners",
+      "Instructor_Name": "Alex Johnson",
+      "Course_Image": "https://i.ibb.co/qkJwsqp/pexels-pixabay-265087.jpg",
+      "Course_Price": 59.99,
+      "Brief_Description": "Get started with data analysis and visualization.",
+      "Total_Enrollment": 200,
+      "Enrollment_Status": true
+    },
+    {
+      "Course_Title": "Photography Masterclass",
+      "Instructor_Name": "Sophia Brown",
+      "Course_Image": "https://i.ibb.co/MVmqmqX/pexels-andre-furtado-1264210.jpg",
+      "Course_Price": 69.99,
+      "Brief_Description": "Unlock the art of photography and editing techniques.",
+      "Total_Enrollment": 150,
+      "Enrollment_Status": true
+    },
+    {
+      "Course_Title": "Mobile App Development",
+      "Instructor_Name": "Daniel Wilson",
+      "Course_Image": "https://i.ibb.co/qkJwsqp/pexels-pixabay-265087.jpg",
+      "Course_Price": 89.99,
+      "Brief_Description": "Build your own mobile applications for iOS and Android.",
+      "Total_Enrollment": 400,
+      "Enrollment_Status": true
+    },
+    {
+      "Course_Title": "Graphic Design Essentials",
+      "Instructor_Name": "Ava Miller",
+      "Course_Image": "https://i.ibb.co/QpLd4vP/pexels-alexander-ant-4585185.jpg",
+      "Course_Price": 59.99,
+      "Brief_Description": "Learn design principles and tools for graphic design.",
+      "Total_Enrollment": 250,
+      "Enrollment_Status": true
+    },
+    {
+      "Course_Title": "Music Production Workshop",
+      "Instructor_Name": "Noah Thompson",
+      "Course_Image": "https://i.ibb.co/cCT5d2Q/pexels-zulian-yuliansyah-2086669.jpg",
+      "Course_Price": 49.99,
+      "Brief_Description": "Create music using digital audio workstations.",
+      "Total_Enrollment": 100,
+      "Enrollment_Status": true
+    },
+    {
+      "Course_Title": "Cooking 101",
+      "Instructor_Name": "Olivia Garcia",
+      "Course_Image": "https://i.ibb.co/sjNC1WM/pexels-dapur-melodi-1109197.jpg",
+      "Course_Price": 39.99,
+      "Brief_Description": "Master basic cooking techniques and recipes.",
+      "Total_Enrollment": 300,
+      "Enrollment_Status": true
+    },
+    {
+      "Course_Title": "Digital Marketing Strategies",
+      "Instructor_Name": "Ethan Martinez",
+      "Course_Image": "https://i.ibb.co/xhmdXPW/pexels-canva-studio-3194524.jpg",
+      "Course_Price": 79.99,
+      "Brief_Description": "Learn effective digital marketing tactics and campaigns.",
+      "Total_Enrollment": 200,
+      "Enrollment_Status": false
+    },
+    {
+      "Course_Title": "Yoga and Meditation",
+      "Instructor_Name": "Isabella Adams",
+      "Course_Image": "https://i.ibb.co/ftnzG0w/pexels-felipe-borges-2597205.jpg",
+      "Course_Price": 29.99,
+      "Brief_Description": "Practice yoga and meditation for a balanced lifestyle.",
+      "Total_Enrollment": 350,
+      "Enrollment_Status": true
+    }
+  ]
+  
