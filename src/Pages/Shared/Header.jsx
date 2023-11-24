@@ -16,7 +16,7 @@ const Header = () => {
         <Link to="/allClasses">All Classes</Link>
       </li>
       <li className=" border border-[#346B8D] italic text-[#346B8D] px-5 py-2 rounded">
-        <Link to="/addFoods">Teach on Class Crafters</Link>
+        <Link to="/teachOnClassCrafters">Teach on Class Crafters</Link>
       </li>
     </>
   );

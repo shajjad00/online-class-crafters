@@ -12,6 +12,8 @@ import Users from "../Pages/Dashboard/Users/Users";
 import Classes from "../Pages/Classes/Classes";
 import AllClasses from "../Pages/AllClasses/AllClasses";
 import MyEnrollClass from "../Pages/Dashboard/MyEnrollClass/MyEnrollClass";
+import TeachOnClassCrafters from "../Pages/TeachOnClassCrafters/TeachOnClassCrafters";
+import PrivateRoute from "../Route/PrivateRoute";
 
 const Route = createBrowserRouter([
   {
@@ -33,6 +35,14 @@ const Route = createBrowserRouter([
       {
         path: "/allClasses",
         element: <AllClasses></AllClasses>,
+      },
+      {
+        path: "/teachOnClassCrafters",
+        element: (
+          <PrivateRoute>
+            <TeachOnClassCrafters></TeachOnClassCrafters>,
+          </PrivateRoute>
+        ),
       },
     ],
   },

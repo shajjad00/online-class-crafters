@@ -22,7 +22,7 @@ const DashBoard = () => {
   // const { cart } = useCart();
 
   const isTeacher = false;
-  const isAdmin = false;
+  const isAdmin = true;
   //TODO: get isAdmin from the database
   // console.log(isAdmin);
   return (
@@ -74,7 +74,7 @@ const DashBoard = () => {
                   }}
                 >
                   <FaUsers />
-                  Users
+                  All Users
                 </NavLink>
               </li>
               <li>
@@ -256,8 +256,13 @@ const DashBoard = () => {
       </div>
       <div className=" col-span-9">
         <Outlet></Outlet>
+        <div>
+          <Toaster />
+        </div>
       </div>
-      <Toaster />
+      <div>
+        <Toaster />
+      </div>
     </div>
   );
 };

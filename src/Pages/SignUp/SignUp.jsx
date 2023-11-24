@@ -3,7 +3,7 @@ import "./signUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
-// import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosPublic from "../../hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
 import { FiUserPlus } from "react-icons/fi";
@@ -16,7 +16,7 @@ const SignUp = () => {
     reset,
   } = useForm();
   const navigate = useNavigate();
-  // const axiosPublic = useAxiosPublic();
+  const axiosPublic = useAxiosPublic();
 
   const { createUser, userUpdateProfile } = useAuth();
 
@@ -29,25 +29,23 @@ const SignUp = () => {
         if (res.user) {
           userUpdateProfile(name, photo)
             .then(() => {
-              // const userInfo = {
-              //   name: name,
-              //   email: email,
-              // };
-              // axiosPublic.post("/users", userInfo).then((data) => {
-              //   console.log(data.data.insertedId);
-              //   if (data.data.insertedId) {
-              //     navigate("/");
-              //     toast.success("user created successfully");
-              //     reset();
-              //   }
-              // });
+              const userInfo = {
+                name: name,
+                email: email,
+                img: photo,
+              };
+              axiosPublic.post("/users", userInfo).then((data) => {
+                console.log(data.data.insertedId);
+                if (data.data.insertedId) {
+                  navigate("/");
+                  toast.success("user created successfully");
+                  reset();
+                }
+              });
             })
             .catch((error) => {
               console.log(error);
             });
-          toast.success("user created successfully");
-          navigate("/");
-          reset();
         }
       })
       .catch((err) => console.log(err.code));
