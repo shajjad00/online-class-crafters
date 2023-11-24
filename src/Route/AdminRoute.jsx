@@ -7,8 +7,6 @@ const AdminRoute = ({ children }) => {
   const { data, isLoading } = useAdmin();
   const isAdmin = data?.role?.toLowerCase() === "admin";
 
-  console.log("admin", isAdmin);
-  console.log("user", user);
   if (loading || isLoading) {
     return <p>loading...</p>;
   }

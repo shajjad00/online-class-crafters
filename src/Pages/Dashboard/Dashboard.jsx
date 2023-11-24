@@ -23,7 +23,7 @@ const DashBoard = () => {
 
   return (
     <div className=" grid grid-cols-12 gap-6">
-      <div className=" col-span-3 bg-[#D1A054] min-h-screen">
+      <div className=" col-span-3 bg-[#508981] min-h-screen">
         <ul className="menu font-semibold">
           {isAdmin ? (
             <div>
