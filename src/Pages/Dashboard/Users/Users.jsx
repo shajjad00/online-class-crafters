@@ -46,7 +46,6 @@ const Users = () => {
   }
   return (
     <div>
-      Users {users?.length}
       <table className="table text-[#737373]">
         {/* head */}
         <thead>

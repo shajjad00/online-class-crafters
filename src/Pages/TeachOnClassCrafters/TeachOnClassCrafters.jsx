@@ -15,8 +15,13 @@ const TeachOnClassCrafters = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    axiosSecure.post("/user/teacher/Request", data).then((data) => {
-      if (data.insertedId) {
+    const courseData = { ...data, email: user?.email, status: "pending" };
+    axiosSecure.post("/user/teacher/Request", courseData).then((data) => {
+      if (data.data.insertedId) {
+        // const userEmail = { email: data?.email };
+        // axiosSecure.patch("/user/teacher/role", userEmail).then((data) => {
+        //   console.log(data.data);
+        // });
         toast.success("Request Successful");
         reset();
       }
@@ -44,13 +49,13 @@ const TeachOnClassCrafters = () => {
           <div className=" flex justify-center items-center flex-col">
             <input
               className="w-full mb-5 px-8 py-4 rounded-lg font-medium bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
-              type="email"
-              placeholder="Email"
-              {...register("email", { required: true })}
+              type="text"
+              placeholder="Title"
+              {...register("title", { required: true })}
             />
-            {errors.email && (
+            {errors.title && (
               <span className=" text-red-600 text-sm italic">
-                email is required
+                title is required
               </span>
             )}
           </div>
@@ -72,14 +77,14 @@ const TeachOnClassCrafters = () => {
             <select
               {...register("experience", { required: true })}
               name="experience"
-              defaultValue="Select an Option"
+              defaultValue="Select experience"
               className="w-full mb-5 px-8 py-4 rounded-lg font-semibold bg-gray-100 border border-gray-200 placeholder-gray-500 text-sm focus:outline-none focus:border-gray-400 focus:bg-white"
             >
               <option
                 disabled
-                value="Select an Option"
+                value="Select experience"
               >
-                experience an Option
+                Select experience
               </option>
               <option value="beginner">Beginner</option>
               <option value="intermediate">Intermediate</option>
@@ -110,7 +115,7 @@ const TeachOnClassCrafters = () => {
               </option>
               <option value="Photography">Photography</option>
               <option value="Data Science">Data Science</option>
-              <option value="digital marketing,">Digital marketing,</option>
+              <option value="digital marketing">Digital marketing</option>
             </select>
             {errors.category && (
               <span className=" text-red-600 text-sm italic">
@@ -121,7 +126,7 @@ const TeachOnClassCrafters = () => {
         </div>
         <button
           type="submit"
-          className="mt-5  font-semibold bg-[#346B8D] text-gray-100 w-full py-4 rounded-lg hover:bg-[#044268] transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
+          className="mt-5 max-w-md mx-auto font-semibold bg-[#346B8D] text-gray-100 w-full py-4 rounded-lg hover:bg-[#044268] transition-all duration-300 ease-in-out flex items-center justify-center focus:shadow-outline focus:outline-none"
         >
           <span className="ml-3 capitalize">Submit for review</span>
         </button>
