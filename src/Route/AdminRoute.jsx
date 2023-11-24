@@ -4,9 +4,11 @@ import useAuth from "../Hooks/useAuth";
 
 const AdminRoute = ({ children }) => {
   const { user, loading } = useAuth();
-  const { userRole, isLoading } = useAdmin();
-  const isAdmin = userRole?.toLowerCase() === "admin";
+  const { data, isLoading } = useAdmin();
+  const isAdmin = data?.role?.toLowerCase() === "admin";
 
+  console.log("admin", isAdmin);
+  console.log("user", user);
   if (loading || isLoading) {
     return <p>loading...</p>;
   }

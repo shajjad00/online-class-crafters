@@ -9,9 +9,7 @@ import {
 } from "react-icons/fa";
 import { GrAddCircle } from "react-icons/gr";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
-
 import { AiOutlineProfile } from "react-icons/ai";
-
 import { NavLink, Outlet } from "react-router-dom";
 
 import { Toaster } from "react-hot-toast";
