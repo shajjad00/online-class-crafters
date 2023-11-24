@@ -1,5 +1,87 @@
+import { useQuery } from "@tanstack/react-query";
+import useAuth from "../../../Hooks/useAuth";
+import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+
 const MyClass = () => {
-  return <div>MyClass</div>;
+  const { user, loading } = useAuth();
+  const axiosSecure = useAxiosSecure();
+
+  const { data: classes } = useQuery({
+    queryKey: ["teacherClasses", user?.email],
+    enabled: !loading,
+    queryFn: async () => {
+      const res = await axiosSecure.get(`/user/teacher/classes/${user?.email}`);
+      return res.data;
+    },
+  });
+  console.log(classes);
+  return (
+    <>
+      <div className=" grid grid-cols-1 md:grid-cols-2  gap-5">
+        {classes?.map((classItem) => {
+          console.log(classItem);
+          const { _id, name, email, status, title, price, photo, description } =
+            classItem;
+          return (
+            <div
+              className="bg-gray-100  shadow-lg rounded-md pb-3 flex flex-1 flex-col justify-between"
+              key={_id}
+            >
+              <div className=" space-y-2  relative">
+                <img
+                  className=" h-[300px] w-full border-4 border-[#8C6A88]"
+                  src={photo}
+                  alt=""
+                />
+                <h2 className=" text-xl font-bold mt-2">{title}</h2>
+                <p className=" text-sm text-gray-500 font-semibold">
+                  <span className=" border-b-2 border-gray-600 ">Author</span> :{" "}
+                  {name}
+                </p>
+                <p className=" text-sm text-gray-500 font-semibold">
+                  <span className=" border-b-2 border-gray-600 ">Email</span> :{" "}
+                  {email}
+                </p>
+                <p className=" text-gray-500">{description}</p>
+                <p className=" text-gray-500 bg-white px-3 py-2 font-bold absolute top-2 right-2">
+                  <span className=" border-b-2 border-gray-600 ">Price</span>
+                  :$
+                  {price}
+                </p>
+                <p className=" text-gray-500  font-bold ">
+                  <span className=" border-b-2 border-gray-600 ">Status</span> :
+                  {status}
+                </p>
+              </div>
+
+              <div className=" mt-3 flex justify-center items-center gap-5 mx-3">
+                <button
+                  // disabled={isAccepted}
+                  // onClick={() => handleApprove(email)}
+                  className=" btn text-white hover:bg-[#225951] bg-[#70A9A1] btn-sm"
+                >
+                  update
+                </button>
+                <button
+                  // disabled={isAccepted}
+                  className=" m-1 btn btn-sm hover:bg-[#b82518] text-white bg-[#FF6F61]"
+                >
+                  Delete
+                </button>
+                <button
+                  // disabled={isAccepted}
+                  // onClick={() => handleApprove(email)}
+                  className=" btn text-white hover:bg-[#225951] bg-[#70A9A1] btn-sm"
+                >
+                  See Details
+                </button>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+    </>
+  );
 };
 
 export default MyClass;

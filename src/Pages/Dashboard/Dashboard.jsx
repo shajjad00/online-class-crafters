@@ -18,11 +18,11 @@ import { Toaster } from "react-hot-toast";
 import useAdmin from "../../Hooks/useAdmin";
 
 const DashBoard = () => {
-  const { userRole } = useAdmin();
+  const { data } = useAdmin();
 
-  const isTeacher = userRole.toLowerCase() === "teacher";
-  const isAdmin = userRole.toLowerCase() === "admin";
-  console.log(isTeacher, isAdmin);
+  const isTeacher = data?.role?.toLowerCase() === "teacher";
+  const isAdmin = data?.role?.toLowerCase() === "admin";
+
   return (
     <div className=" grid grid-cols-12 gap-6">
       <div className=" col-span-3 bg-[#D1A054] min-h-screen">

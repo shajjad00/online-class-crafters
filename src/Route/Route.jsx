@@ -14,6 +14,8 @@ import AllClasses from "../Pages/AllClasses/AllClasses";
 import MyEnrollClass from "../Pages/Dashboard/MyEnrollClass/MyEnrollClass";
 import TeachOnClassCrafters from "../Pages/TeachOnClassCrafters/TeachOnClassCrafters";
 import PrivateRoute from "../Route/PrivateRoute";
+import AdminRoute from "./adminRoute";
+import TeacherRoute from "./TeacherRoute";
 
 const Route = createBrowserRouter([
   {
@@ -54,11 +56,19 @@ const Route = createBrowserRouter([
       //teacher route
       {
         path: "addClass",
-        element: <AddClass></AddClass>,
+        element: (
+          <TeacherRoute>
+            <AddClass></AddClass>
+          </TeacherRoute>
+        ),
       },
       {
         path: "myClass",
-        element: <MyClass></MyClass>,
+        element: (
+          <TeacherRoute>
+            <MyClass></MyClass>
+          </TeacherRoute>
+        ),
       },
       //shared
       {
@@ -68,11 +78,19 @@ const Route = createBrowserRouter([
       //admin route
       {
         path: "teacherRequest",
-        element: <TeacherRequest></TeacherRequest>,
+        element: (
+          <AdminRoute>
+            <TeacherRequest></TeacherRequest>
+          </AdminRoute>
+        ),
       },
       {
         path: "users",
-        element: <Users></Users>,
+        element: (
+          <AdminRoute>
+            <Users></Users>
+          </AdminRoute>
+        ),
       },
       {
         path: "classes",
