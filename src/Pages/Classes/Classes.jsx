@@ -2,6 +2,7 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
+import { Link } from "react-router-dom";
 
 const Classes = () => {
   const axiosSecure = useAxiosSecure();
@@ -25,10 +26,31 @@ const Classes = () => {
       confirmButtonText: "Yes, Approve it!",
     }).then((result) => {
       if (result.isConfirmed) {
-        axiosSecure.patch(`/allClasses/${id}`).then((res) => {
+        axiosSecure.patch(`/allClasses/approve/${id}`).then((res) => {
           console.log(res.data);
           toast.success("successfully approved");
           refetch();
+        });
+      }
+    });
+  };
+  const handleReject = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, Reject it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        axiosSecure.patch(`/allClasses/reject/${id}`).then((res) => {
+          console.log(res.data);
+          if (res.data.modifiedCount > 0) {
+            toast.success("successfully Rejected");
+          }
         });
       }
     });
@@ -68,7 +90,7 @@ const Classes = () => {
                 <td>{title}</td>
 
                 <td>{description.slice(0, 100)}</td>
-                <td className=" flex gap-3 justify-center items-center">
+                <td className="">
                   <button
                     disabled={isDisabled}
                     onClick={() => handleApprove(_id)}
@@ -78,11 +100,22 @@ const Classes = () => {
                   </button>
 
                   <button
-                    // onClick={() => handleDelete(_id)}
+                    onClick={() => handleReject(_id)}
+                    disabled={isDisabled}
                     className=" m-1 btn btn-xs hover:bg-[#b82518] text-white bg-[#FF6F61]"
                   >
                     Reject
                   </button>
+                </td>
+                <td className="">
+                  <Link to={`${_id}`}>
+                    <button
+                      disabled={!isDisabled}
+                      className="btn hover:bg-[#253343] text-white bg-[#566270]"
+                    >
+                      See progress
+                    </button>
+                  </Link>
                 </td>
               </tr>
             );

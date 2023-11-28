@@ -75,7 +75,7 @@ const MyClass = () => {
                   :$
                   {price}
                 </p>
-                <p className=" text-gray-500  font-bold ">
+                <p className=" text-gray-500 capitalize  font-bold ">
                   <span className=" border-b-2 border-gray-600 ">Status</span> :
                   {status}
                 </p>
@@ -93,7 +93,7 @@ const MyClass = () => {
                 >
                   Delete
                 </button>
-                <Link to={`${_id}`}>
+                <Link to={`/dashboard/classes/${_id}`}>
                   <button
                     disabled={isDisabled}
                     // onClick={() => handleApprove(email)}

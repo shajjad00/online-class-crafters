@@ -19,6 +19,7 @@ import TeacherRoute from "./TeacherRoute";
 import TeacherClassDetails from "../Pages/TeacherClassDetails/TeacherClassDetails";
 import UpdateTeacherClass from "../Pages/UpdateTeacherClass/UpdateTeacherClass";
 import ClassDetails from "../Pages/ClassDetails/ClassDetails";
+import ProgressDetails from "../Pages/ProgressDetails/ProgressDetails";
 
 const Route = createBrowserRouter([
   {
@@ -121,7 +122,19 @@ const Route = createBrowserRouter([
       },
       {
         path: "classes",
-        element: <Classes></Classes>,
+        element: (
+          <AdminRoute>
+            <Classes></Classes>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "classes/:id",
+        element: (
+          <AdminRoute>
+            <ProgressDetails></ProgressDetails>
+          </AdminRoute>
+        ),
       },
       //student
       {
