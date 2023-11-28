@@ -22,25 +22,29 @@ const MyProfile = () => {
   const { name, email, role, img } = userData;
   return (
     <>
-      <div className=" flex justify-center">
-        <div className="p-5 border rounded bg-gray-200 text-center text-gray-500 max-w-sm">
+      <div className=" max-w-3xl mx-auto flex justify-center mt-5 border w-full">
+        <div className=" px-4 py-1 w-full border gap-5 items-center flex rounded   text-gray-500">
           <img
-            className="w-32 h-32 rounded-full mx-auto"
+            className="w-32 h-32 rounded-full"
             src={img}
             alt=""
           />
-          <div className="text-sm mt-5 capitalize">
-            <p className="font-medium leading-none text-gray-900 hover:text-indigo-600 transition duration-500 ease-in-out">
+          <div className="text-xl mt-5 space-y-2 capitalize">
+            <p className="font-medium  text-gray-900  transition duration-500 ease-in-out">
               {name}
             </p>
-            <p>{email}</p>
-            <p>Role: {role || "Student"}</p>
-            <p>phone: +00999888777</p>
+            <p>
+              <span className="font-medium  text-gray-900">Email:</span> {email}
+            </p>
+            <p>
+              <span className="font-medium  text-gray-900">Role:</span>{" "}
+              {role || "Student"}
+            </p>
+            <p>
+              <span className="font-medium  text-gray-900">phone:</span>{" "}
+              +00999888777
+            </p>
           </div>
-          <p className="mt-2 text-sm text-gray-900">
-            A user is someone who employs or uses a particular thing, like a
-            user of nicotine or a user of an internet site.
-          </p>
         </div>
       </div>
     </>

@@ -12,7 +12,7 @@ const AllClasses = () => {
     },
   });
   return (
-    <div className=" max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+    <div className=" max-w-screen-xl p-4 mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
       {classes?.map((classItem) => {
         const { _id, title, name, photo, price, description } = classItem;
         return (
@@ -22,7 +22,7 @@ const AllClasses = () => {
           >
             <div className=" space-y-2 bg-gray-100  shadow-lg rounded-md pb-3">
               <img
-                className=" h-[300px] w-[400px] border-4 border-[#8C6A88]"
+                className=" h-[300px] w-fit  border-4 border-[#8C6A88]"
                 src={photo}
                 alt=""
               />
