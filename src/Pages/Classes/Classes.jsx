@@ -68,12 +68,10 @@ const Classes = () => {
                 <td>{title}</td>
 
                 <td>{description.slice(0, 100)}</td>
-                <td
-                  onClick={() => handleApprove(_id)}
-                  className=" flex gap-3 justify-center items-center"
-                >
+                <td className=" flex gap-3 justify-center items-center">
                   <button
                     disabled={isDisabled}
+                    onClick={() => handleApprove(_id)}
                     className=" btn text-white hover:bg-[#225951] bg-[#508981] btn-xs"
                   >
                     Approved

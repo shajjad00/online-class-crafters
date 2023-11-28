@@ -18,6 +18,7 @@ import AdminRoute from "./adminRoute";
 import TeacherRoute from "./TeacherRoute";
 import TeacherClassDetails from "../Pages/TeacherClassDetails/TeacherClassDetails";
 import UpdateTeacherClass from "../Pages/UpdateTeacherClass/UpdateTeacherClass";
+import ClassDetails from "../Pages/ClassDetails/ClassDetails";
 
 const Route = createBrowserRouter([
   {
@@ -45,6 +46,14 @@ const Route = createBrowserRouter([
         element: (
           <PrivateRoute>
             <TeachOnClassCrafters></TeachOnClassCrafters>,
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/classDetails/:id",
+        element: (
+          <PrivateRoute>
+            <ClassDetails></ClassDetails>
           </PrivateRoute>
         ),
       },
