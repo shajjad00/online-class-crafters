@@ -20,6 +20,7 @@ import TeacherClassDetails from "../Pages/TeacherClassDetails/TeacherClassDetail
 import UpdateTeacherClass from "../Pages/UpdateTeacherClass/UpdateTeacherClass";
 import ClassDetails from "../Pages/ClassDetails/ClassDetails";
 import ProgressDetails from "../Pages/ProgressDetails/ProgressDetails";
+import Payment from "../Pages/Payment/Payment";
 
 const Route = createBrowserRouter([
   {
@@ -41,6 +42,10 @@ const Route = createBrowserRouter([
       {
         path: "/allClasses",
         element: <AllClasses></AllClasses>,
+      },
+      {
+        path: "class/Payment",
+        element: <Payment></Payment>,
       },
       {
         path: "/teachOnClassCrafters",

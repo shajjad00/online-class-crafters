@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 
 const ClassDetails = () => {
   const { id } = useParams();
@@ -27,9 +27,12 @@ const ClassDetails = () => {
             alt=""
           />
           <p className=" text-3xl text-gray-900 font-bold">${data?.price}</p>
-          <button className=" px-10 mt-2 py-3 w-full text-white text-xl font-semibold rounded-md bg-green-500">
-            Pay Now
-          </button>
+          <Link to="/class/payment">
+            {" "}
+            <button className=" px-10 mt-2 py-3 w-full text-white text-xl font-semibold rounded-md bg-green-500">
+              Pay Now
+            </button>
+          </Link>
           <h2 className=" text-xl font-bold mt-2">{data?.title}</h2>
           <p className=" text-sm text-gray-500 font-semibold">
             <span className=" border-b-2 border-gray-600 ">Teacher</span> :{" "}
