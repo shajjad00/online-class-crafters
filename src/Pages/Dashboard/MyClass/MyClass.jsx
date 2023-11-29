@@ -30,7 +30,6 @@ const MyClass = () => {
     }).then((result) => {
       if (result.isConfirmed) {
         axiosSecure.delete(`/teacher/classes/${id}`).then((res) => {
-          console.log(res.data);
           if (res.data.deletedCount > 0) {
             toast.success("delete successful");
             refetch();
