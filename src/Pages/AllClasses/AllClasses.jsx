@@ -17,10 +17,10 @@ const AllClasses = () => {
         const { _id, title, name, photo, price, description } = classItem;
         return (
           <div
-            className=" flex justify-center items-center"
-            key={classItem}
+            className=""
+            key={_id}
           >
-            <div className="min-h-[600px] bg-gray-100  shadow-lg rounded-md pb-3 flex justify-between flex-col">
+            <div className="min-h-[650px] bg-gray-100  shadow-lg rounded-md pb-3 flex justify-between flex-col">
               <div>
                 <img
                   className=" h-[300px] w-full  border-4 border-[#70A9A1]"
@@ -28,18 +28,18 @@ const AllClasses = () => {
                   alt=""
                 />
                 <div className=" pl-2 space-y-2">
+                  <p className=" text-3xl mt-2 text-gray-900 font-bold">
+                    Price : ${price}
+                  </p>
                   <h2 className=" text-xl font-bold mt-2">{title}</h2>
                   <p className=" text-sm text-gray-500 font-semibold">
                     <span className=" border-b-2 border-gray-600 ">Author</span>{" "}
                     : {name}
                   </p>
                   <p>{description}</p>
-                  <p className=" text-3xl text-gray-900 font-bold">
-                    Price : ${price}
-                  </p>
                 </div>
               </div>
-              <div className=" w-4/5 mx-auto">
+              <div className=" w-full">
                 <Link to={`/classDetails/${_id}`}>
                   <button className=" w-full  font-bold text-[#70A9A1]  border-[#70A9A1] border-2 rounded-md hover:bg-[#70A9A1] hover:text-white transition-all ease-in-out duration-500 px-10 py-2 mt-2">
                     Enroll

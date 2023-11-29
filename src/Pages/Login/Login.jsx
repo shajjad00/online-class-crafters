@@ -10,7 +10,6 @@ const Login = () => {
   const navigate = useNavigate();
   const { register, handleSubmit } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     const { email, password } = data;
     userSignIn(email, password)
       .then((res) => {

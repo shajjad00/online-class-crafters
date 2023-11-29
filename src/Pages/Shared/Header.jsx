@@ -5,7 +5,6 @@ import { BiMenu } from "react-icons/bi";
 
 const Header = () => {
   const { user, userSignOut } = useAuth();
-  console.log(user);
   const navigate = useNavigate();
   const elements = (
     <>

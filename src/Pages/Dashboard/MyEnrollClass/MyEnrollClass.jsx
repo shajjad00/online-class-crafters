@@ -1,6 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Link } from "react-router-dom";
 
 const MyEnrollClass = () => {
   const { user, loading } = useAuth();
@@ -18,7 +19,7 @@ const MyEnrollClass = () => {
   console.log(user, loading);
 
   return (
-    <div className=" grid grid-cols-1 gap-6 md:grid-cols-2">
+    <div className=" grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
       {myClass?.map((item) => {
         const { _id, photo, author, title } = item;
         return (
@@ -38,9 +39,11 @@ const MyEnrollClass = () => {
               : {author || ""}
             </h5>
             <h2 className=" pl-2 text-xl font-semibold mb-2">{title}</h2>
-            <button className=" px-3 py-2  w-full text-green-500 border-t-2 font-medium">
-              Continue
-            </button>
+            <Link to={`/myEnrollClassDetail/${_id}`}>
+              <button className=" px-3 py-2  w-full text-green-500 border-t-2 font-medium">
+                Continue
+              </button>
+            </Link>
           </div>
         );
       })}

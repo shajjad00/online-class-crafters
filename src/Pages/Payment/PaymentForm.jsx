@@ -15,7 +15,6 @@ const PaymentForm = ({ enrolledClass }) => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const navigate = useNavigate();
-
   console.log(enrolledClass);
   const enrolledClassData = {
     name: enrolledClass?.name,
@@ -25,12 +24,15 @@ const PaymentForm = ({ enrolledClass }) => {
     email: user?.email,
     author: enrolledClass?.name,
   };
-
+  const itemPrice = parseInt(enrolledClass?.price);
+  console.log(itemPrice);
   useEffect(() => {
-    axiosSecure.post("/create-payment-intent", { price: 100 }).then((res) => {
-      setClientSecret(res.data.clientSecret);
-    });
-  }, [axiosSecure]);
+    axiosSecure
+      .post("/create-payment-intent", { price: itemPrice })
+      .then((res) => {
+        setClientSecret(res.data.clientSecret);
+      });
+  }, [axiosSecure, itemPrice]);
 
   const handlePayment = async (e) => {
     e.preventDefault();
@@ -79,6 +81,12 @@ const PaymentForm = ({ enrolledClass }) => {
         axiosSecure.post("/enrolledClass", enrolledClassData).then((res) => {
           console.log(res.data);
         });
+        //update enroll count
+        axiosSecure
+          .patch(`/updateEnrollCount/${enrolledClass?._id}`)
+          .then((res) => {
+            console.log(res.data);
+          });
         navigate("/dashboard/myEnrollClass");
       }
     }

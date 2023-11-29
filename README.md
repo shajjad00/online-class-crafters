@@ -32,5 +32,3 @@ Sure, here are a few color palettes suitable for ClassCrafters:
    - #FEE440 (Yellow)
    - #00BBF9 (Blue)
    - #00F5D4 (Turquoise)
-
-These palettes incorporate a mix of energetic, academic, and vibrant colors that could reflect the ethos of ClassCrafters, catering to learning, growth, and creativity.

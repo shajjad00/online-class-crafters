@@ -21,6 +21,7 @@ import UpdateTeacherClass from "../Pages/UpdateTeacherClass/UpdateTeacherClass";
 import ClassDetails from "../Pages/ClassDetails/ClassDetails";
 import ProgressDetails from "../Pages/ProgressDetails/ProgressDetails";
 import Payment from "../Pages/Payment/Payment";
+import MyEnrolledClassDetail from "../Pages/MyEnrolledClassDetail/MyEnrolledClassDetail";
 
 const Route = createBrowserRouter([
   {
@@ -60,6 +61,14 @@ const Route = createBrowserRouter([
         element: (
           <PrivateRoute>
             <ClassDetails></ClassDetails>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "/myEnrollClassDetail/:id",
+        element: (
+          <PrivateRoute>
+            <MyEnrolledClassDetail></MyEnrolledClassDetail>
           </PrivateRoute>
         ),
       },
@@ -136,15 +145,19 @@ const Route = createBrowserRouter([
       {
         path: "classes/:id",
         element: (
-          <AdminRoute>
+          <TeacherRoute>
             <ProgressDetails></ProgressDetails>
-          </AdminRoute>
+          </TeacherRoute>
         ),
       },
       //student
       {
         path: "myEnrollClass",
-        element: <MyEnrollClass></MyEnrollClass>,
+        element: (
+          <PrivateRoute>
+            <MyEnrollClass></MyEnrollClass>
+          </PrivateRoute>
+        ),
       },
     ],
   },

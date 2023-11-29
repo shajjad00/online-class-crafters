@@ -35,7 +35,6 @@ const SignUp = () => {
                 img: photo,
               };
               axiosPublic.post("/users", userInfo).then((data) => {
-                console.log(data.data.insertedId);
                 if (data.data.insertedId) {
                   navigate("/");
                   toast.success("user created successfully");
@@ -59,7 +58,7 @@ const SignUp = () => {
       <div>
         <div className="bg-gray-100  flex justify-center">
           <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center ">
-            <div className="md:w-1/2 p-6 sm:p-12">
+            <div className="lg:w-1/2 p-6 sm:p-12">
               <div className=" mb-5 flex justify-center">
                 <img
                   src="https://i.ibb.co/KNGzV2N/Food-AND-Beverage-1.png"
@@ -166,7 +165,7 @@ const SignUp = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 bg-green-100 text-center hidden md:flex"></div>
+            <div className="flex-1 bg-green-100 text-center hidden lg:flex"></div>
           </div>
         </div>
       </div>

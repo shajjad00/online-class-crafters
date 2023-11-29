@@ -4,7 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 const ClassDetails = () => {
   const { id } = useParams();
-  console.log(id);
+
   const axiosPublic = useAxiosPublic();
   const { data, isLoading } = useQuery({
     queryKey: ["singleApprovedClass"],
@@ -27,7 +27,9 @@ const ClassDetails = () => {
             alt=""
           />
 
-          <p className=" text-3xl text-gray-900 font-bold">${data?.price}</p>
+          <p className=" text-3xl mt-2 text-gray-900 font-bold">
+            Price : ${data?.price}
+          </p>
           <Link to={`/class/payment/${data?._id}`}>
             {" "}
             <button className=" px-10 mt-2 py-3 w-full text-white text-xl font-semibold rounded-sm bg-green-500 hover:bg-white hover:text-green-500 hover:border-2 transition-all ease-in-out duration-500">
