@@ -44,7 +44,7 @@ const Route = createBrowserRouter([
         element: <AllClasses></AllClasses>,
       },
       {
-        path: "class/Payment",
+        path: "class/Payment/:id",
         element: <Payment></Payment>,
       },
       {

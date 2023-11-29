@@ -27,7 +27,7 @@ const ClassDetails = () => {
             alt=""
           />
           <p className=" text-3xl text-gray-900 font-bold">${data?.price}</p>
-          <Link to="/class/payment">
+          <Link to={`/class/payment/${data?._id}`}>
             {" "}
             <button className=" px-10 mt-2 py-3 w-full text-white text-xl font-semibold rounded-md bg-green-500">
               Pay Now

@@ -3,8 +3,10 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import "./style/style.css";
+import { useNavigate } from "react-router-dom";
 
-const PaymentForm = () => {
+const PaymentForm = ({ enrolledClass }) => {
   const [error, setError] = useState("");
   const [isSuccess, setIsSuccess] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -12,6 +14,17 @@ const PaymentForm = () => {
   const elements = useElements();
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
+  const navigate = useNavigate();
+
+  console.log(enrolledClass);
+  const enrolledClassData = {
+    name: enrolledClass?.name,
+    title: enrolledClass?.title,
+    photo: enrolledClass?.photo,
+    description: enrolledClass?.description,
+    email: user?.email,
+    author: enrolledClass?.email,
+  };
 
   useEffect(() => {
     axiosSecure.post("/create-payment-intent", { price: 100 }).then((res) => {
@@ -57,8 +70,16 @@ const PaymentForm = () => {
       console.log("confirmError", confirmError);
     } else {
       if (paymentIntent.status === "succeeded") {
+        console.log(paymentIntent.status);
         toast.success("transaction succeeded");
         setIsSuccess(paymentIntent.status);
+
+        //send enrolled class data to db
+
+        axiosSecure.post("/enrolledClass", enrolledClassData).then((res) => {
+          console.log(res.data);
+        });
+        // navigate("/dashboard/myEnrollClass");
       }
     }
   };
@@ -66,14 +87,18 @@ const PaymentForm = () => {
   return (
     <>
       <form
-        className=" max-w-screen-xl mx-auto p-4"
+        className=" max-w-sm mx-auto p-4 bg-gray-100 rounded-md"
         onSubmit={handlePayment}
       >
+        <p className=" text-center capitalize font-semibold text-xl mb-4  ">
+          enter card details
+        </p>
         <CardElement
           options={{
             style: {
               base: {
                 fontSize: "16px",
+                fontWeight: "bold",
                 color: "#424770",
                 "::placeholder": {
                   color: "#aab7c4",
@@ -88,7 +113,7 @@ const PaymentForm = () => {
         <button
           disabled={!stripe || !clientSecret || isSuccess === "succeeded"}
           type="submit"
-          className="btn btn-outline mt-4"
+          className="btn bg-green-500 w-full text-white text-xl font-bold mt-4"
         >
           Pay
         </button>
