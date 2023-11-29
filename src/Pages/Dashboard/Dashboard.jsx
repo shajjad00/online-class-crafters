@@ -1,12 +1,4 @@
-import {
-  FaBook,
-  FaBookReader,
-  FaEnvelope,
-  FaHome,
-  FaShoppingCart,
-  FaUser,
-  FaUsers,
-} from "react-icons/fa";
+import { FaBook, FaBookReader, FaHome, FaUser, FaUsers } from "react-icons/fa";
 import { GrAddCircle } from "react-icons/gr";
 import { VscGitPullRequestGoToChanges } from "react-icons/vsc";
 import { AiOutlineProfile } from "react-icons/ai";
@@ -215,37 +207,6 @@ const DashBoard = () => {
             >
               <FaHome />
               Home
-            </NavLink>
-          </li>
-
-          <li>
-            <NavLink
-              to="/"
-              style={({ isActive }) => {
-                return {
-                  fontWeight: isActive ? "bold" : "",
-                  color: isActive ? "white" : "black",
-                  backgroundColor: isActive ? "transparent" : "",
-                };
-              }}
-            >
-              <FaShoppingCart />
-              Shop
-            </NavLink>
-          </li>
-          <li className="">
-            <NavLink
-              to="/"
-              style={({ isActive }) => {
-                return {
-                  fontWeight: isActive ? "bold" : "",
-                  color: isActive ? "white" : "black",
-                  backgroundColor: isActive ? "transparent" : "",
-                };
-              }}
-            >
-              <FaEnvelope />
-              Contact
             </NavLink>
           </li>
         </ul>

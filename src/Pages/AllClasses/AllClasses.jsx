@@ -20,25 +20,32 @@ const AllClasses = () => {
             className=" flex justify-center items-center"
             key={classItem}
           >
-            <div className=" space-y-2 bg-gray-100  shadow-lg rounded-md pb-3">
-              <img
-                className=" h-[300px] w-fit  border-4 border-[#8C6A88]"
-                src={photo}
-                alt=""
-              />
-              <h2 className=" text-xl font-bold mt-2">{title}</h2>
-              <p className=" text-sm text-gray-500 font-semibold">
-                <span className=" border-b-2 border-gray-600 ">Author</span> :{" "}
-                {name}
-              </p>
-              <p>{description}</p>
-              <p className=" font-bold">${price}</p>
-
-              <Link to={`/classDetails/${_id}`}>
-                <button className=" font-semibold text-[#8C6A88] border-[#8C6A88] border-b-4 rounded-md bg-[#E8E8E8] px-10 py-2">
-                  Enroll
-                </button>
-              </Link>
+            <div className="min-h-[600px] bg-gray-100  shadow-lg rounded-md pb-3 flex justify-between flex-col">
+              <div>
+                <img
+                  className=" h-[300px] w-full  border-4 border-[#70A9A1]"
+                  src={photo}
+                  alt=""
+                />
+                <div className=" pl-2 space-y-2">
+                  <h2 className=" text-xl font-bold mt-2">{title}</h2>
+                  <p className=" text-sm text-gray-500 font-semibold">
+                    <span className=" border-b-2 border-gray-600 ">Author</span>{" "}
+                    : {name}
+                  </p>
+                  <p>{description}</p>
+                  <p className=" text-3xl text-gray-900 font-bold">
+                    Price : ${price}
+                  </p>
+                </div>
+              </div>
+              <div className=" w-4/5 mx-auto">
+                <Link to={`/classDetails/${_id}`}>
+                  <button className=" w-full  font-bold text-[#70A9A1]  border-[#70A9A1] border-2 rounded-md hover:bg-[#70A9A1] hover:text-white transition-all ease-in-out duration-500 px-10 py-2 mt-2">
+                    Enroll
+                  </button>
+                </Link>
+              </div>
             </div>
           </div>
         );

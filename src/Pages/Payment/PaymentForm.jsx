@@ -23,7 +23,7 @@ const PaymentForm = ({ enrolledClass }) => {
     photo: enrolledClass?.photo,
     description: enrolledClass?.description,
     email: user?.email,
-    author: enrolledClass?.email,
+    author: enrolledClass?.name,
   };
 
   useEffect(() => {
@@ -79,7 +79,7 @@ const PaymentForm = ({ enrolledClass }) => {
         axiosSecure.post("/enrolledClass", enrolledClassData).then((res) => {
           console.log(res.data);
         });
-        // navigate("/dashboard/myEnrollClass");
+        navigate("/dashboard/myEnrollClass");
       }
     }
   };

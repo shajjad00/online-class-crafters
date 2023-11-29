@@ -19,26 +19,29 @@ const ClassDetails = () => {
   }
   return (
     <>
-      <div className=" max-w-md mx-auto rounded-md">
-        <div className=" space-y-2 w-full bg-gray-100  shadow-lg rounded-md pb-3">
+      <div className=" max-w-md mx-auto rounded-sm">
+        <div className="  w-full bg-gray-100  shadow-lg rounded-md pb-3">
           <img
-            className=" h-[300px] w-full rounded-md "
+            className=" h-[300px] w-full rounded-sm "
             src={data?.photo}
             alt=""
           />
+
           <p className=" text-3xl text-gray-900 font-bold">${data?.price}</p>
           <Link to={`/class/payment/${data?._id}`}>
             {" "}
-            <button className=" px-10 mt-2 py-3 w-full text-white text-xl font-semibold rounded-md bg-green-500">
+            <button className=" px-10 mt-2 py-3 w-full text-white text-xl font-semibold rounded-sm bg-green-500 hover:bg-white hover:text-green-500 hover:border-2 transition-all ease-in-out duration-500">
               Pay Now
             </button>
           </Link>
-          <h2 className=" text-xl font-bold mt-2">{data?.title}</h2>
-          <p className=" text-sm text-gray-500 font-semibold">
-            <span className=" border-b-2 border-gray-600 ">Teacher</span> :{" "}
-            {data?.name}
-          </p>
-          <p>{data?.description}</p>
+          <div className=" pl-2 space-y-2">
+            <h2 className=" text-xl font-bold mt-2">{data?.title}</h2>
+            <p className=" text-sm text-gray-500 font-semibold">
+              <span className=" border-b-2 border-gray-600 ">Teacher</span> :{" "}
+              {data?.name}
+            </p>
+            <p>{data?.description}</p>
+          </div>
         </div>
       </div>
     </>

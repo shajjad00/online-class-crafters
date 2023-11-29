@@ -22,14 +22,14 @@ const MyProfile = () => {
   const { name, email, role, img } = userData;
   return (
     <>
-      <div className=" max-w-3xl mx-auto flex justify-center mt-5 border w-full">
+      <div className=" max-w-3xl mx-auto flex justify-center mt-5 border w-full bg-gray-100">
         <div className=" px-4 py-1 w-full border gap-5 items-center flex rounded   text-gray-500">
           <img
             className="w-32 h-32 rounded-full"
             src={img}
             alt=""
           />
-          <div className="text-xl mt-5 space-y-2 capitalize">
+          <div className="text-xl space-y-2 capitalize">
             <p className="font-medium  text-gray-900  transition duration-500 ease-in-out">
               {name}
             </p>
