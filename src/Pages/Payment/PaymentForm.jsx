@@ -6,7 +6,8 @@ import toast from "react-hot-toast";
 import "./style/style.css";
 import { useNavigate } from "react-router-dom";
 
-const PaymentForm = ({ enrolledClass }) => {
+const PaymentForm = ({ enrolledClass, isLoading, id }) => {
+  console.log(enrolledClass);
   const [error, setError] = useState("");
   const [isSuccess, setIsSuccess] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -15,7 +16,6 @@ const PaymentForm = ({ enrolledClass }) => {
   const axiosSecure = useAxiosSecure();
   const { user } = useAuth();
   const navigate = useNavigate();
-  console.log(enrolledClass);
   const enrolledClassData = {
     name: enrolledClass?.name,
     title: enrolledClass?.title,
@@ -23,16 +23,15 @@ const PaymentForm = ({ enrolledClass }) => {
     description: enrolledClass?.description,
     email: user?.email,
     author: enrolledClass?.name,
+    enrolledClassId: enrolledClass?._id,
   };
   const itemPrice = parseInt(enrolledClass?.price);
   console.log(itemPrice);
   useEffect(() => {
-    axiosSecure
-      .post("/create-payment-intent", { price: itemPrice })
-      .then((res) => {
-        setClientSecret(res.data.clientSecret);
-      });
-  }, [axiosSecure, itemPrice]);
+    axiosSecure.post("/create-payment-intent", { id: id }).then((res) => {
+      setClientSecret(res.data.clientSecret);
+    });
+  }, [id, axiosSecure]);
 
   const handlePayment = async (e) => {
     e.preventDefault();
@@ -91,6 +90,10 @@ const PaymentForm = ({ enrolledClass }) => {
       }
     }
   };
+
+  if (isLoading) {
+    <p>loading...</p>;
+  }
 
   return (
     <>

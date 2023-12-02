@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
 import { Link, useParams } from "react-router-dom";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 
 const ClassDetails = () => {
   const { id } = useParams();

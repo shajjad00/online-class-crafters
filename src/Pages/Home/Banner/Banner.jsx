@@ -1,59 +1,76 @@
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Navigation, Pagination } from "swiper/modules";
 
-import { EffectCreative } from "swiper/modules";
-
+// Import Swiper styles
 import "swiper/css";
-import "swiper/css/navigation";
-import useQueryData from "../../../Hooks/useQueryData";
-import LottieAnimation from "../../../Component/LottieAnimation/LottieAnimation";
+import "swiper/css/effect-coverflow";
+import "swiper/css/pagination";
+
+import "./banner.css";
+
+// import required modules
+import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
+import { useQuery } from "@tanstack/react-query";
+import useAxiosPublic from "../../../Hooks/useAxiosPublic";
 
 const Banner = () => {
-  const { data, isLoading } = useQueryData(
-    "foods",
-    "https://food-sharing-community-server-three.vercel.app/foods"
-  );
+  const axiosPublic = useAxiosPublic();
+  const { data, isLoading } = useQuery({
+    queryKey: ["carouselSlide"],
+    queryFn: async () => {
+      const res = await axiosPublic("/allApprovedClass");
+      return res.data;
+    },
+  });
   if (isLoading) {
-    return <LottieAnimation></LottieAnimation>;
+    return <p>loading....</p>;
   }
   return (
-    <Swiper
-      modules={[Navigation, Pagination, EffectCreative]}
-      effect="creative"
-      spaceBetween={50}
-      slidesPerView={1}
-      navigation
-      onSlideChange={() => console.log("slide changed")}
-      onSwiper={() => console.log(Swiper)}
-    >
-      {data?.map((item) => (
-        <SwiperSlide key={item.id}>
-          <div className="relative w-full">
-            <img
-              src={item?.foodImageURL}
-              className="w-full object-cover h-[500px] "
-            />
-            <div className="absolute  flex items-center h-full left-0 top-0 bg-gradient-to-r from-[#151515] to-[rgba(21, 21, 21, 1)]">
-              <div className="text-white space-y-7 pl-14 w-1/2">
-                <h2 className="text-6xl font-bold capitalize">
-                  {item.foodName}
-                </h2>
-                <p className=" max-w-4xl">
-                  What You Give Today Will Help Prevent Child Hunger In The
-                  Lives Of Many Tomorrow. Experience How Rescuing Food Is
-                  Changing Lives around the World.
-                </p>
-                <div>
-                  <button className="btn text-white border-none bg-[#EE343F] mr-5">
-                    Discover More
-                  </button>
+    <>
+      <div className="relative py-3 bg-[url('https://i.ibb.co/k4PpZGr/pexels-christina-morillo-1181595.jpg')] ">
+        <div className="absolute inset-0 bg-black opacity-90 rounded-md">
+          <h2 className=" text-center text-white text-2xl mt-3">
+            Popular Classes
+          </h2>
+        </div>
+        <Swiper
+          effect={"coverflow"}
+          grabCursor={true}
+          centeredSlides={true}
+          slidesPerView={"auto"}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: true,
+          }}
+          coverflowEffect={{
+            rotate: 50,
+            stretch: 0,
+            depth: 100,
+            modifier: 1,
+            slideShadows: true,
+          }}
+          pagination={true}
+          modules={[EffectCoverflow, Pagination, Autoplay]}
+          className="mySwiper"
+        >
+          {data?.map((item) => (
+            <SwiperSlide key={item?._id}>
+              <div className="relative w-full">
+                <img
+                  src={item?.photo}
+                  className="w-full object-cover h-[500px] "
+                />
+
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <h2 className="text-white text-xl font-bold">
+                    {item?.title}
+                  </h2>
                 </div>
               </div>
-            </div>
-          </div>
-        </SwiperSlide>
-      ))}
-    </Swiper>
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
+    </>
   );
 };
 

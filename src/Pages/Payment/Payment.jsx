@@ -13,17 +13,23 @@ const Payment = () => {
   const { id } = useParams();
   console.log(id);
   const axiosSecure = useAxiosSecure();
-  const { data: enrolledClass } = useQuery({
+  const { data: enrolledClass, isLoading } = useQuery({
     queryKey: ["enrolledClass"],
     queryFn: async () => {
       const res = await axiosSecure.get(`/allApprovedClass/${id}`);
       return res.data;
     },
   });
-  console.log(enrolledClass);
+  if (isLoading) {
+    <p>loading...</p>;
+  }
   return (
     <Elements stripe={stripePromise}>
-      <PaymentForm enrolledClass={enrolledClass}></PaymentForm>
+      <PaymentForm
+        enrolledClass={enrolledClass}
+        isLoading={isLoading}
+        id={id}
+      ></PaymentForm>
     </Elements>
   );
 };

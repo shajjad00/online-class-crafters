@@ -64,14 +64,6 @@ const Route = createBrowserRouter([
           </PrivateRoute>
         ),
       },
-      {
-        path: "/myEnrollClassDetail/:id",
-        element: (
-          <PrivateRoute>
-            <MyEnrolledClassDetail></MyEnrolledClassDetail>
-          </PrivateRoute>
-        ),
-      },
     ],
   },
   //dashboard route
@@ -156,6 +148,14 @@ const Route = createBrowserRouter([
         element: (
           <PrivateRoute>
             <MyEnrollClass></MyEnrollClass>
+          </PrivateRoute>
+        ),
+      },
+      {
+        path: "myEnrollClass/:id",
+        element: (
+          <PrivateRoute>
+            <MyEnrolledClassDetail></MyEnrolledClassDetail>
           </PrivateRoute>
         ),
       },
