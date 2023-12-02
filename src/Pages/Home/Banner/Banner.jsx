@@ -53,11 +53,14 @@ const Banner = () => {
           className="mySwiper"
         >
           {data?.map((item) => (
-            <SwiperSlide key={item?._id}>
+            <SwiperSlide
+              className="banner-slide"
+              key={item?._id}
+            >
               <div className="relative w-full">
                 <img
                   src={item?.photo}
-                  className="w-full object-cover h-[500px] "
+                  className="w-full rounded-md object-cover h-[500px] "
                 />
 
                 <div className="absolute inset-0 flex items-center justify-center">

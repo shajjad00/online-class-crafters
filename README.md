@@ -1,7 +1,3 @@
-color code
-
-Sure, here are a few color palettes suitable for ClassCrafters:
-
 1. **Academic Serenity:**
 
    - #346B8D (Blue)

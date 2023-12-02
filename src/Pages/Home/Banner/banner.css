@@ -9,14 +9,14 @@ body {
   padding-bottom: 50px;
 }
 
-.swiper-slide {
+.banner-slide {
   background-position: center;
   background-size: cover;
   width: 300px;
   height: 300px;
 }
 
-.swiper-slide img {
+.banner-slide img {
   display: block;
   width: 100%;
 }

@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useState } from "react";
 import ReactStars from "react-rating-stars-component";
+import useAuth from "../../Hooks/useAuth";
 import {
   Dialog,
   DialogTitle,
@@ -14,6 +15,8 @@ import toast from "react-hot-toast";
 const Report = () => {
   const [open, setOpen] = useState(false);
   const [ratingNo, setRatingNo] = useState(null);
+  const { user } = useAuth();
+  console.log(user);
   const {
     register,
     handleSubmit,
@@ -23,18 +26,21 @@ const Report = () => {
   const axiosSecure = useAxiosSecure();
 
   const ratingChanged = (newRating) => {
-    console.log(newRating);
     setRatingNo(newRating);
   };
 
   const onSubmit = (data) => {
-    console.log(data);
-    const feedbackData = { ...data, rating: ratingNo };
+    const feedbackData = {
+      ...data,
+      rating: ratingNo,
+      name: user?.displayName,
+      img: user?.photoUrl,
+    };
+
     axiosSecure.post(`/feedback`, feedbackData).then((res) => {
-      console.log(res.data);
       if (res.data.insertedId) {
         reset();
-        toast.success("assignment create successful");
+        toast.success("feedback submit successful");
       }
     });
   };

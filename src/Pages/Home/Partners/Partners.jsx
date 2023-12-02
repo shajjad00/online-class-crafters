@@ -4,7 +4,7 @@ const Partners = () => {
       <p className="mb-6 text-center text-3xl text-gray-600">
         OUR PARTNER PROGRAM
       </p>
-      <div className=" bg-[#222] p-6 md:px-14 flex justify-center gap-20">
+      <div className=" bg-[#222] bg-opacity-40 p-6 md:px-14 flex justify-center gap-20">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="103"
