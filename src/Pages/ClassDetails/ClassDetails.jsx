@@ -19,7 +19,7 @@ const ClassDetails = () => {
   }
   return (
     <>
-      <div className=" max-w-md mx-auto rounded-sm">
+      <div className=" max-w-md mx-auto my-10 rounded-sm">
         <div className="  w-full bg-gray-100  shadow-lg rounded-md pb-3">
           <img
             className=" h-[300px] w-full rounded-sm "
@@ -32,7 +32,7 @@ const ClassDetails = () => {
           </p>
           <Link to={`/class/payment/${data?._id}`}>
             {" "}
-            <button className=" px-10 mt-2 py-3 w-full text-white text-xl font-semibold rounded-sm bg-green-500 hover:bg-white hover:text-green-500 hover:border-2 transition-all ease-in-out duration-500">
+            <button className=" px-10 mt-2 py-2 w-full text-white text-xl font-semibold rounded-sm bg-[#346B8D] hover:bg-white hover:text-[#346B8D] hover:border-2 transition-all ease-in-out duration-500">
               Pay Now
             </button>
           </Link>

@@ -16,7 +16,6 @@ const Report = () => {
   const [open, setOpen] = useState(false);
   const [ratingNo, setRatingNo] = useState(null);
   const { user } = useAuth();
-  console.log(user);
   const {
     register,
     handleSubmit,
@@ -28,7 +27,7 @@ const Report = () => {
   const ratingChanged = (newRating) => {
     setRatingNo(newRating);
   };
-
+  console.log(user);
   const onSubmit = (data) => {
     const feedbackData = {
       ...data,
@@ -76,7 +75,6 @@ const Report = () => {
                       size={24}
                       activeColor="#ffd700"
                     />
-                    ,
                   </div>
                   <div>
                     <textarea

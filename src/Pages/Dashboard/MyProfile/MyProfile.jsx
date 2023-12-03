@@ -22,8 +22,8 @@ const MyProfile = () => {
   const { name, email, role, img } = userData;
   return (
     <>
-      <div className=" max-w-3xl mx-auto flex justify-center mt-5 border w-full bg-gray-100">
-        <div className=" px-4 py-1 w-full border gap-5 items-center flex rounded   text-gray-500">
+      <div className=" w-[450px] md:w-[500px] lg:w-[800px] mx-auto flex justify-center mt-5 border bg-gray-100">
+        <div className=" px-4 py-1 w-full border gap-5 items-center flex rounded text-gray-500">
           <img
             className="w-32 h-32 rounded-full"
             src={img}

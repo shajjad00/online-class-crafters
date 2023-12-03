@@ -21,15 +21,20 @@ const TopClasses = () => {
   });
   return (
     <div>
+      <h2 className=" text-4xl text-center font-bold mt-6 border-b-2 border-gray-700 px-2 pb-4 w-fit mx-auto shadow-sm text-gray-700">
+        Popular Classes
+      </h2>
       <Swiper
+        slidesPerView={1}
         spaceBetween={30}
-        effect="fade"
-        navigation={true}
+        loop={true}
         pagination={{
           clickable: true,
         }}
+        effect="fade"
+        navigation
         autoplay={{
-          delay: 3000,
+          delay: 2000,
           disableOnInteraction: true,
         }}
         modules={[EffectFade, Navigation, Pagination]}

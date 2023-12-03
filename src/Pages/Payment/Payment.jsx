@@ -25,11 +25,13 @@ const Payment = () => {
   }
   return (
     <Elements stripe={stripePromise}>
-      <PaymentForm
-        enrolledClass={enrolledClass}
-        isLoading={isLoading}
-        id={id}
-      ></PaymentForm>
+      <div className=" min-h-[50vh]">
+        <PaymentForm
+          enrolledClass={enrolledClass}
+          isLoading={isLoading}
+          id={id}
+        ></PaymentForm>
+      </div>
     </Elements>
   );
 };

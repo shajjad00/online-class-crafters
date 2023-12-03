@@ -16,15 +16,13 @@ const MyEnrollClass = () => {
     },
   });
 
-  console.log(user, loading);
-
   return (
     <div className=" grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-4">
       {myClass?.map((item) => {
         const { _id, photo, author, title, enrolledClassId } = item;
         return (
           <div
-            className=" max-w-xs border-2 rounded-md"
+            className=" w-[400px] mx-auto md:max-w-xs border-2 rounded-md"
             key={_id}
           >
             <img

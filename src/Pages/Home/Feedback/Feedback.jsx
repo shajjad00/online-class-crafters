@@ -17,45 +17,70 @@ const Feedback = () => {
     console.log(newRating);
   };
   return (
-    <Swiper
-      modules={[Navigation, Pagination]}
-      spaceBetween={50}
-      slidesPerView={3}
-      navigation
-      pagination={{ clickable: true }}
-      onSlideChange={() => console.log("slide change")}
-      onSwiper={(swiper) => console.log(swiper)}
-    >
-      <SwiperSlide>
-        {" "}
-        {feedback?.map((item) => {
-          return (
-            <div
-              className=" max-w-md  rounded-lg mx-auto p-5 border indicator"
-              key={item._id}
-            >
-              <div>
-                <p className=" mb-4">{item?.description} </p>
-                <ReactStars
-                  count={5}
-                  value={parseInt(item?.rating)}
-                  onChange={ratingChanged}
-                  size={24}
-                  activeColor="#ffd700"
-                />
-                <p className=" text-gray-800">Shajjad Hossan</p>
-                <p className=" text-gray-400">
-                  Teaching Assistant, Brac University
-                </p>
-              </div>
-              <span className="indicator-item indicator-top indicator-center badge font-bold bg-gray-400">
-                Feedback
-              </span>
-            </div>
-          );
-        })}
-      </SwiperSlide>
-    </Swiper>
+    <>
+      <h2 className=" text-4xl text-center font-bold mt-6 border-b-2 border-gray-700 px-2 pb-4 w-fit mx-auto shadow-md">
+        Students Feedback
+      </h2>
+      <Swiper
+        modules={[Navigation, Pagination]}
+        spaceBetween={20}
+        slidesPerView={3}
+        navigation
+        pagination={{ clickable: true }}
+        onSlideChange={() => console.log("slide change")}
+        onSwiper={(swiper) => console.log(swiper)}
+        breakpoints={{
+          425: {
+            slidesPerView: 1,
+            spaceBetween: 20,
+          },
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 50,
+          },
+        }}
+      >
+        <div className="">
+          {feedback?.map((item) => {
+            console.log(item);
+            return (
+              <SwiperSlide key={item._id}>
+                <div className="border shadow-lg relative max-w-md md:min-h-[330px] rounded-lg mx-auto p-5">
+                  <div>
+                    <p></p>
+                    <p className="">{item?.description} </p>
+                    <ReactStars
+                      count={5}
+                      value={parseInt(item?.rating)}
+                      onChange={ratingChanged}
+                      size={24}
+                      activeColor="#ffd700"
+                    />
+                    <div>
+                      <p className=" text-gray-800">
+                        {item?.name || "Shajjad Hossan"}
+                      </p>
+                      <img
+                        src={item?.img}
+                        alt=""
+                      />
+                    </div>
+                  </div>
+                  <span className="indicator-item absolute -top-2 left-[175px] md:left-[70px] lg:left-1/3 indicator-top indicator-center badge font-bold bg-gray-400">
+                    Feedback
+                  </span>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </div>
+      </Swiper>
+    </>
   );
 };
 
