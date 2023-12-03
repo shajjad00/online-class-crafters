@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { Helmet } from "react-helmet-async";
+import Title from "../../../Components/Title/Title";
 
 const MyClass = () => {
   const { user, loading } = useAuth();
@@ -43,6 +44,7 @@ const MyClass = () => {
       <Helmet>
         <title>Class Crafters | My Class</title>
       </Helmet>
+      <Title text={"My All Class"}></Title>
       <div className=" grid grid-cols-1 md:grid-cols-2  gap-5">
         {classes?.map((classItem) => {
           const { _id, name, email, status, title, price, photo, description } =
@@ -92,15 +94,24 @@ const MyClass = () => {
                 >
                   Delete
                 </button>
-                <Link to={`/dashboard/classes/${_id}`}>
+                {isDisabled ? (
                   <button
-                    disabled={isDisabled}
+                    disabled
                     // onClick={() => handleApprove(email)}
                     className=" btn text-white hover:bg-[#225951] bg-[#70A9A1] btn-sm"
                   >
                     See Details
                   </button>
-                </Link>
+                ) : (
+                  <Link to={`/dashboard/classes/${_id}`}>
+                    <button
+                      // onClick={() => handleApprove(email)}
+                      className=" btn text-white hover:bg-[#225951] bg-[#70A9A1] btn-sm"
+                    >
+                      See Details
+                    </button>
+                  </Link>
+                )}
               </div>
             </div>
           );

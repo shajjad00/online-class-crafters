@@ -1,6 +1,8 @@
 import Swal from "sweetalert2";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { Helmet } from "react-helmet-async";
+import Title from "../../../Components/Title/Title";
 
 const TeacherRequest = () => {
   const axiosSecure = useAxiosSecure();
@@ -47,10 +49,15 @@ const TeacherRequest = () => {
   return (
     <>
       <div className=" mt-6">
+        <Helmet>
+          <title>Class Crafters | Teachers Request</title>
+        </Helmet>
+
+        <Title text={"Teachers Request"}></Title>
         <table className="table text-[#737373] capitalize">
           {/* head */}
           <thead>
-            <tr className=" bg-[#D1A054] text-white">
+            <tr className=" bg-[#346B8D] text-white">
               <th></th>
               <th>Name</th>
               <th>Photo</th>

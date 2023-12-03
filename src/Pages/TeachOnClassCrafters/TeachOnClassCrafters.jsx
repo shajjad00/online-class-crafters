@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
 
 const TeachOnClassCrafters = () => {
   const axiosSecure = useAxiosSecure();
@@ -18,10 +19,6 @@ const TeachOnClassCrafters = () => {
     const courseData = { ...data, email: user?.email, status: "pending" };
     axiosSecure.post("/user/teacher/Request", courseData).then((data) => {
       if (data.data.insertedId) {
-        // const userEmail = { email: data?.email };
-        // axiosSecure.patch("/user/teacher/role", userEmail).then((data) => {
-        //   console.log(data.data);
-        // });
         toast.success("Request Successful");
         reset();
       }
@@ -29,7 +26,9 @@ const TeachOnClassCrafters = () => {
   };
   return (
     <div className=" max-w-screen-xl mx-auto p-4">
-      {" "}
+      <Helmet>
+        <title>Class Crafters | Teach On Class Crafters</title>
+      </Helmet>{" "}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-5">
           <div className=" flex justify-center items-center flex-col">

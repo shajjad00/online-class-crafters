@@ -89,7 +89,7 @@ const Header = () => {
                 </li>
                 <li>
                   <Link
-                    to="/dashboard"
+                    to="/dashboard/myProfile"
                     className="hover:border-2  mt-3 hover:border-[#346B8D] bg-[#346B8D] text-white  rounded-md pl-16 py-2 hover:bg-white hover:text-[#346B8D] font-semibold"
                   >
                     Dashboard

@@ -3,6 +3,8 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import toast from "react-hot-toast";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
+import Title from "../../Components/Title/Title";
 
 const Classes = () => {
   const axiosSecure = useAxiosSecure();
@@ -57,8 +59,11 @@ const Classes = () => {
   };
   return (
     <>
+      <Helmet>
+        <title>Class Crafters | Clsses</title>
+      </Helmet>
+      <Title text={"All Clsses"}></Title>
       <table className="table text-[#737373]">
-        {/* head */}
         <thead>
           <tr className=" bg-[#508981] text-white">
             <th></th>
@@ -108,7 +113,7 @@ const Classes = () => {
                   </button>
                 </td>
                 <td className="">
-                  <Link to={`${_id}`}>
+                  <Link to={`feedback/${_id}`}>
                     <button
                       disabled={!isDisabled}
                       className="btn hover:bg-[#253343] text-white bg-[#566270]"

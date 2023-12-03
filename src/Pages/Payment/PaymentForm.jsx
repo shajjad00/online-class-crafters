@@ -5,9 +5,10 @@ import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
 import "./style/style.css";
 import { useNavigate } from "react-router-dom";
+import useEnrollClass from "../../Hooks/useEnrollClass";
 
 const PaymentForm = ({ enrolledClass, isLoading, id }) => {
-  console.log(enrolledClass);
+  const { refetch } = useEnrollClass();
   const [error, setError] = useState("");
   const [isSuccess, setIsSuccess] = useState("");
   const [clientSecret, setClientSecret] = useState("");
@@ -73,8 +74,6 @@ const PaymentForm = ({ enrolledClass, isLoading, id }) => {
       if (paymentIntent.status === "succeeded") {
         console.log(paymentIntent.status);
         toast.success("transaction succeeded");
-        setIsSuccess(paymentIntent.status);
-
         //send enrolled class data to db
 
         axiosSecure.post("/enrolledClass", enrolledClassData).then((res) => {
@@ -85,8 +84,10 @@ const PaymentForm = ({ enrolledClass, isLoading, id }) => {
           .patch(`/updateEnrollCount/${enrolledClass?._id}`)
           .then((res) => {
             console.log(res.data);
+            setIsSuccess(paymentIntent.status);
+            refetch();
+            navigate("/dashboard/myEnrollClass");
           });
-        navigate("/dashboard/myEnrollClass");
       }
     }
   };

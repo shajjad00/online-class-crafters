@@ -3,7 +3,7 @@ import "./signUp.css";
 import { Link, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { Helmet } from "react-helmet-async";
-import useAxiosPublic from "../../hooks/useAxiosPublic";
+import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
 import { FiUserPlus } from "react-icons/fi";

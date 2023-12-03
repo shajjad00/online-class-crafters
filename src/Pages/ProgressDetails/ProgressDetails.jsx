@@ -4,6 +4,7 @@ import { useQuery } from "@tanstack/react-query";
 
 import Modal from "./Modal/Modal";
 import useAuth from "../../Hooks/useAuth";
+import { Helmet } from "react-helmet-async";
 
 const ProgressDetails = () => {
   const { id } = useParams();
@@ -27,6 +28,9 @@ const ProgressDetails = () => {
   });
   return (
     <div>
+      <Helmet>
+        <title>Class Crafters | Progress Details</title>
+      </Helmet>
       <div className=" mt-3 rounded-lg p-4 text-gray-100 max-w-xs flex justify-center items-center bg-gradient-to-r from-[#00F5D4] to-blue-500">
         <div className=" text-4xl font-semibold text-center">
           <p>Total Enrolled</p>

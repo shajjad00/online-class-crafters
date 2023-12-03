@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
-// import { FaUsers } from "react-icons/fa";
-import { BiTrashAlt } from "react-icons/bi";
 import Swal from "sweetalert2";
+import { Helmet } from "react-helmet-async";
+import Title from "../../../Components/Title/Title";
 const Users = () => {
   const axiosSecure = useAxiosSecure();
   const {
@@ -46,15 +46,19 @@ const Users = () => {
   }
   return (
     <div>
+      <Helmet>
+        <title>Class Crafters | All Users</title>
+      </Helmet>
+      <Title text={"All users"}></Title>
       <table className="table text-[#737373]">
         {/* head */}
         <thead>
-          <tr className=" bg-[#D1A054] text-white">
+          <tr className=" bg-[#346B8D] text-white">
             <th></th>
+            <th>User</th>
             <th>Name</th>
             <th>EMAIL</th>
             <th>ROLE</th>
-            <th>ACTION</th>
           </tr>
         </thead>
         <tbody>
@@ -67,37 +71,52 @@ const Users = () => {
                 className=" border-b-2"
               >
                 <th>{idx + 1}</th>
+                <td className=" mx-auto">
+                  <img
+                    className=" w-12 h-12 rounded-full"
+                    src={item?.img}
+                    alt=""
+                  />
+                </td>
                 <td>{name}</td>
                 <td>{email}</td>
                 <td className="">
                   {item?.role === "admin" ? (
                     <button
                       disabled
-                      className="text-white btn text-sm btn-sm bg-[#D1A054]"
+                      className="text-white btn text-sm btn-sm bg-[#346B8D]"
                     >
                       Admin
                     </button>
                   ) : item?.role === "teacher" ? (
-                    <button
-                      onClick={() => handleMakeAdmin(_id)}
-                      className="text-white text-sm btn-sm bg-[#D1A054]"
-                    >
-                      Teacher
-                    </button>
+                    <>
+                      <div
+                        className="tooltip"
+                        data-tip="Click to make admin"
+                      >
+                        <button
+                          onClick={() => handleMakeAdmin(_id)}
+                          className="btn hover:bg-white hover:text-[#346B8D] text-white text-sm btn-sm bg-[#346B8D]"
+                        >
+                          Teacher
+                        </button>
+                      </div>
+                    </>
                   ) : (
-                    <button
-                      onClick={() => handleMakeAdmin(_id)}
-                      className="btn text-white text-sm btn-sm bg-[#D1A054]"
-                    >
-                      Student
-                    </button>
+                    <>
+                      <div
+                        className="tooltip"
+                        data-tip="Click to make admin"
+                      >
+                        <button
+                          onClick={() => handleMakeAdmin(_id)}
+                          className="btn hover:bg-white hover:text-[#346B8D] text-white text-sm btn-sm bg-[#346B8D]"
+                        >
+                          Student
+                        </button>
+                      </div>
+                    </>
                   )}
-                </td>
-                <td
-                  // onClick={() => handleDelete(_id)}
-                  className=" text-xl text-red-700 cursor-pointer mx-auto"
-                >
-                  <BiTrashAlt />
                 </td>
               </tr>
             );

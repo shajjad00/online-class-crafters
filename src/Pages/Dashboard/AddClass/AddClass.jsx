@@ -2,6 +2,8 @@ import { useForm } from "react-hook-form";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import toast from "react-hot-toast";
+import { Helmet } from "react-helmet-async";
+import Title from "../../../Components/Title/Title";
 
 const AddClass = () => {
   const axiosSecure = useAxiosSecure();
@@ -30,7 +32,10 @@ const AddClass = () => {
   };
   return (
     <>
-      {" "}
+      <Helmet>
+        <title>Class Crafters | Add Class</title>
+      </Helmet>
+      <Title text={"Add a Class"}></Title>
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className=" grid grid-cols-1 md:grid-cols-2 gap-5 mt-4">
           <div className=" flex justify-center items-center flex-col">

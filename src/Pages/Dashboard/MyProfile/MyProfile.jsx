@@ -1,6 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 import useAuth from "../../../Hooks/useAuth";
 import useAxiosSecure from "../../../Hooks/useAxiosSecure";
+import { Helmet } from "react-helmet-async";
+import Title from "../../../Components/Title/Title";
 
 const MyProfile = () => {
   const { user, loading } = useAuth();
@@ -22,8 +24,12 @@ const MyProfile = () => {
   const { name, email, role, img } = userData;
   return (
     <>
-      <div className=" w-[450px] md:w-[500px] lg:w-[800px] mx-auto flex justify-center mt-5 border bg-gray-100">
-        <div className=" px-4 py-1 w-full border gap-5 items-center flex rounded text-gray-500">
+      <Helmet>
+        <title>Class Crafters | User Profile</title>
+      </Helmet>
+      <Title text={"User Profile"}></Title>
+      <div className=" w-[450px] md:w-[700px] lg:w-[800px] mx-auto flex justify-center mt-5 border bg-gray-100">
+        <div className=" px-4 py-1 w-full gap-5 items-center flex rounded text-gray-500">
           <img
             className="w-32 h-32 rounded-full"
             src={img}

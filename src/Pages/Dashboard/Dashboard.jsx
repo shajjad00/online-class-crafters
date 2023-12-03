@@ -18,28 +18,16 @@ const DashBoard = () => {
     <>
       {" "}
       <div className=" flex md:hidden">
-        <Sidebar></Sidebar>
+        <Sidebar
+          isTeacher={isTeacher}
+          isAdmin={isAdmin}
+        ></Sidebar>
       </div>
       <div className=" grid grid-cols-12 gap-6">
         <div className=" hidden md:flex md:col-span-3 bg-[#508981] min-h-screen">
           <ul className="menu font-semibold">
             {isAdmin ? (
               <div>
-                <li>
-                  <NavLink
-                    to="/dashboard/adminHome"
-                    style={({ isActive }) => {
-                      return {
-                        fontWeight: isActive ? "bold" : "",
-                        color: isActive ? "white" : "black",
-                        backgroundColor: isActive ? "transparent" : "",
-                      };
-                    }}
-                  >
-                    <FaHome></FaHome>Admin Home
-                  </NavLink>
-                </li>
-
                 <li>
                   <NavLink
                     to="/dashboard/teacherRequest"
@@ -55,7 +43,6 @@ const DashBoard = () => {
                     Teacher Request
                   </NavLink>
                 </li>
-
                 <li>
                   <NavLink
                     to="/dashboard/users"
@@ -153,20 +140,6 @@ const DashBoard = () => {
               </>
             ) : (
               <>
-                <li>
-                  <NavLink
-                    to="/dashboard/studentHome"
-                    style={({ isActive }) => {
-                      return {
-                        fontWeight: isActive ? "bold" : "",
-                        color: isActive ? "white" : "black",
-                        backgroundColor: isActive ? "transparent" : "",
-                      };
-                    }}
-                  >
-                    <FaHome></FaHome>Student Home
-                  </NavLink>
-                </li>
                 <li>
                   <NavLink
                     to="/dashboard/myEnrollClass"

@@ -14,7 +14,6 @@ import AllClasses from "../Pages/AllClasses/AllClasses";
 import MyEnrollClass from "../Pages/Dashboard/MyEnrollClass/MyEnrollClass";
 import TeachOnClassCrafters from "../Pages/TeachOnClassCrafters/TeachOnClassCrafters";
 import PrivateRoute from "../Route/PrivateRoute";
-import AdminRoute from "./adminRoute";
 import TeacherRoute from "./TeacherRoute";
 import TeacherClassDetails from "../Pages/TeacherClassDetails/TeacherClassDetails";
 import UpdateTeacherClass from "../Pages/UpdateTeacherClass/UpdateTeacherClass";
@@ -22,6 +21,8 @@ import ClassDetails from "../Pages/ClassDetails/ClassDetails";
 import ProgressDetails from "../Pages/ProgressDetails/ProgressDetails";
 import Payment from "../Pages/Payment/Payment";
 import MyEnrolledClassDetail from "../Pages/MyEnrolledClassDetail/MyEnrolledClassDetail";
+import MyAdminRoute from "./MyAdminRoute";
+import StudentFeedback from "../Pages/StudentFeedback/StudentFeedback";
 
 const Route = createBrowserRouter([
   {
@@ -113,25 +114,33 @@ const Route = createBrowserRouter([
       {
         path: "teacherRequest",
         element: (
-          <AdminRoute>
+          <MyAdminRoute>
             <TeacherRequest></TeacherRequest>
-          </AdminRoute>
+          </MyAdminRoute>
         ),
       },
       {
         path: "users",
         element: (
-          <AdminRoute>
+          <MyAdminRoute>
             <Users></Users>
-          </AdminRoute>
+          </MyAdminRoute>
         ),
       },
       {
         path: "classes",
         element: (
-          <AdminRoute>
+          <MyAdminRoute>
             <Classes></Classes>
-          </AdminRoute>
+          </MyAdminRoute>
+        ),
+      },
+      {
+        path: "classes/feedback/:id",
+        element: (
+          <MyAdminRoute>
+            <StudentFeedback></StudentFeedback>
+          </MyAdminRoute>
         ),
       },
       {

@@ -3,6 +3,8 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Swal from "sweetalert2";
 import Report from "./Report";
+import { Helmet } from "react-helmet-async";
+import Title from "../../Components/Title/Title";
 
 const MyEnrolledClassDetail = () => {
   const { id } = useParams();
@@ -39,6 +41,10 @@ const MyEnrolledClassDetail = () => {
   }
   return (
     <div className="max-w-screen-lg  mx-auto">
+      <Helmet>
+        <title>Class Crafters | Assignment Details</title>
+      </Helmet>
+      <Title text={"Assignment Details"}></Title>
       <Report></Report>
       {assignment.length > 0 ? (
         <table className="table  text-[#737373] capitalize">
