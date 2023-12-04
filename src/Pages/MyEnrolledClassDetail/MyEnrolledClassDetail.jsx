@@ -5,6 +5,8 @@ import Swal from "sweetalert2";
 import Report from "./Report";
 import { Helmet } from "react-helmet-async";
 import Title from "../../Components/Title/Title";
+import Lottie from "lottie-react";
+import loadingAnimation from "../../../public/loadingAnimation.json";
 
 const MyEnrolledClassDetail = () => {
   const { id } = useParams();
@@ -37,7 +39,16 @@ const MyEnrolledClassDetail = () => {
   };
 
   if (isLoading) {
-    return <p>loading...</p>;
+    return (
+      <div className=" max-w-screen-lg mx-auto">
+        {" "}
+        <Lottie
+          className=" w-[400px] mx-auto"
+          animationData={loadingAnimation}
+          loop={true}
+        />
+      </div>
+    );
   }
   return (
     <div className="max-w-screen-lg  mx-auto">

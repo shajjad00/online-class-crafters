@@ -3,16 +3,30 @@ import { Link } from "react-router-dom";
 import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import { Helmet } from "react-helmet-async";
 import Title from "../../Components/Title/Title";
+import Lottie from "lottie-react";
+import loadingAnimation from "../../../public/loadingAnimation.json";
 
 const AllClasses = () => {
   const axiosPublic = useAxiosPublic();
-  const { data: classes } = useQuery({
+  const { data: classes, isLoading } = useQuery({
     queryKey: ["all classes"],
     queryFn: async () => {
       const res = await axiosPublic("/allApprovedClass");
       return res.data;
     },
   });
+  if (isLoading) {
+    return (
+      <div className=" max-w-screen-lg mx-auto">
+        {" "}
+        <Lottie
+          className=" w-[400px] mx-auto"
+          animationData={loadingAnimation}
+          loop={true}
+        />
+      </div>
+    );
+  }
   return (
     <>
       <Title text={"All Classes"}></Title>

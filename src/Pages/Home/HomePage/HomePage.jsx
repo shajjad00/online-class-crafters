@@ -7,7 +7,7 @@ import TopClasses from "../TopClasses/TopClasses";
 
 const HomePage = () => {
   return (
-    <div className="max-w-screen-xl mx-auto">
+    <div className="max-w-screen-xl p-4 mx-auto">
       <Helmet>
         <title>Class Crafters | Home</title>
       </Helmet>

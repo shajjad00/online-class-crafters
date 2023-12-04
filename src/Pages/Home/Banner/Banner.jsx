@@ -1,4 +1,5 @@
 import { Swiper, SwiperSlide } from "swiper/react";
+import loadingAnimation from "../../../../public/loadingAnimation.json";
 
 // Import Swiper styles
 import "swiper/css";
@@ -11,6 +12,7 @@ import "./banner.css";
 import { EffectCoverflow, Pagination, Autoplay } from "swiper/modules";
 import { useQuery } from "@tanstack/react-query";
 import useAxiosPublic from "../../../Hooks/useAxiosPublic";
+import Lottie from "lottie-react";
 
 const Banner = () => {
   const axiosPublic = useAxiosPublic();
@@ -22,7 +24,16 @@ const Banner = () => {
     },
   });
   if (isLoading) {
-    return <p>loading....</p>;
+    return (
+      <div className=" max-w-screen-lg mx-auto">
+        {" "}
+        <Lottie
+          className=" w-[400px] mx-auto"
+          animationData={loadingAnimation}
+          loop={true}
+        />
+      </div>
+    );
   }
   return (
     <>

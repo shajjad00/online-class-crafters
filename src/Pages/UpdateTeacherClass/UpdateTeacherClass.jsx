@@ -4,6 +4,8 @@ import useAxiosSecure from "../../Hooks/useAxiosSecure";
 import { useNavigate, useParams } from "react-router-dom";
 import { useQuery } from "@tanstack/react-query";
 import toast from "react-hot-toast";
+import Lottie from "lottie-react";
+import loadingAnimation from "../../../public/loadingAnimation.json";
 
 const UpdateTeacherClass = () => {
   const axiosSecure = useAxiosSecure();
@@ -45,7 +47,16 @@ const UpdateTeacherClass = () => {
     });
   };
   if (isLoading) {
-    return <p>loading....</p>;
+    return (
+      <div className=" max-w-screen-lg mx-auto">
+        {" "}
+        <Lottie
+          className=" w-[400px] mx-auto"
+          animationData={loadingAnimation}
+          loop={true}
+        />
+      </div>
+    );
   }
   return (
     <>

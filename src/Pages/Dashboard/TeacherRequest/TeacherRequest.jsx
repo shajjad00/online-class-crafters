@@ -3,6 +3,8 @@ import useAxiosSecure from "../../../Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import { Helmet } from "react-helmet-async";
 import Title from "../../../Components/Title/Title";
+import loadingAnimation from "../../../../public/loadingAnimation.json";
+import Lottie from "lottie-react";
 
 const TeacherRequest = () => {
   const axiosSecure = useAxiosSecure();
@@ -44,7 +46,16 @@ const TeacherRequest = () => {
     });
   };
   if (isLoading) {
-    return <p>loading...</p>;
+    return (
+      <div className=" max-w-screen-lg mx-auto">
+        {" "}
+        <Lottie
+          className=" w-[400px] mx-auto"
+          animationData={loadingAnimation}
+          loop={true}
+        />
+      </div>
+    );
   }
   return (
     <>

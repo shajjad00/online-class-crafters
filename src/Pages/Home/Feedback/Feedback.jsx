@@ -30,7 +30,7 @@ const Feedback = () => {
         onSlideChange={() => console.log("slide change")}
         onSwiper={(swiper) => console.log(swiper)}
         breakpoints={{
-          425: {
+          325: {
             slidesPerView: 1,
             spaceBetween: 20,
           },
@@ -47,10 +47,9 @@ const Feedback = () => {
       >
         <div className="">
           {feedback?.map((item) => {
-            console.log(item);
             return (
               <SwiperSlide key={item._id}>
-                <div className="border shadow-lg relative max-w-md md:min-h-[330px] rounded-lg mx-auto p-5">
+                <div className="border shadow-lg relative max-w-md min-h-[330px] lg:min-h-[350px] rounded-lg mx-auto p-5">
                   <div>
                     <p></p>
                     <p className="">{item?.description} </p>

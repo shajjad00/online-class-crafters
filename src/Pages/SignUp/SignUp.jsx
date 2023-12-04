@@ -7,6 +7,8 @@ import useAxiosPublic from "../../Hooks/useAxiosPublic";
 import toast from "react-hot-toast";
 import useAuth from "../../Hooks/useAuth";
 import { FiUserPlus } from "react-icons/fi";
+import Lottie from "lottie-react";
+import loginAnimation from "../../../public/login-animation.json";
 
 const SignUp = () => {
   const {
@@ -57,9 +59,9 @@ const SignUp = () => {
       </Helmet>
       <div>
         <div className="bg-gray-100  flex justify-center">
-          <div className="max-w-screen-xl m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center ">
-            <div className="lg:w-1/2 p-6 sm:p-12">
-              <div className=" mb-5 flex justify-center">
+          <div className=" m-0 sm:m-10 bg-white shadow sm:rounded-lg flex justify-center ">
+            <div className=" p-6 sm:p-12">
+              <div className="mb-5 flex justify-center">
                 <img
                   src="https://i.ibb.co/KNGzV2N/Food-AND-Beverage-1.png"
                   className="w-mx-auto min-w-[320px]"
@@ -165,7 +167,13 @@ const SignUp = () => {
                 </div>
               </div>
             </div>
-            <div className="flex-1 bg-green-100 text-center hidden lg:flex"></div>
+            <div className="lg:flex-1 bg-green-100 text-center hidden lg:flex">
+              <Lottie
+                className=" w-[400px] mx-auto"
+                animationData={loginAnimation}
+                loop={true}
+              />
+            </div>
           </div>
         </div>
       </div>

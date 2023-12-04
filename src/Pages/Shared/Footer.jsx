@@ -47,19 +47,21 @@ const Footer = () => {
               rich tapestry of tastes that unite us all.
             </p>
           </div>
-          <div className="p-5 sm:w-3/12">
+          <div className="p-5 sm:w-3/12 text-center">
             <div className="text-sm uppercase text-[#346B8D] font-bold">
               Contact Us
             </div>
             <ul>
               <li className="my-2">
-                <a className="hover:text-[#346B8D]">
+                <a className="hover:text-[#346B8D] text-gray-500">
                   123 Gourmet Avenue, Flavorville, Culinary County, TasteLand,
                   98765., Floor 4 San Francisco, CA
                 </a>
               </li>
               <li className="my-2">
-                <a className="hover:text-[#346B8D]">contact@company.com</a>
+                <a className="hover:text-[#346B8D] text-gray-500">
+                  contact@company.com
+                </a>
               </li>
             </ul>
           </div>

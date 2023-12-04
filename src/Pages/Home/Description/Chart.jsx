@@ -26,8 +26,41 @@ const Chart = ({ classesCount, usersCount, totalEnroll }) => {
   return (
     <>
       <BarChart
+        className=" hidden lg:block"
         width={600}
         height={500}
+        data={data}
+        margin={{
+          top: 20,
+          right: 30,
+          left: 20,
+          bottom: 5,
+        }}
+      >
+        <CartesianGrid strokeDasharray="3 3" />
+        <XAxis dataKey="name" />
+        <YAxis
+          yAxisId="left"
+          orientation="left"
+          stroke="#8884d8"
+        />
+        <YAxis
+          yAxisId="right"
+          orientation="right"
+          stroke="#82ca9d"
+        />
+        <Tooltip />
+        <Legend />
+        <Bar
+          yAxisId="left"
+          dataKey="total"
+          fill="#346B8D"
+        />
+      </BarChart>
+      <BarChart
+        className="block lg:hidden"
+        width={400}
+        height={400}
         data={data}
         margin={{
           top: 20,

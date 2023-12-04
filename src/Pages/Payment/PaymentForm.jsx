@@ -6,6 +6,8 @@ import toast from "react-hot-toast";
 import "./style/style.css";
 import { useNavigate } from "react-router-dom";
 import useEnrollClass from "../../Hooks/useEnrollClass";
+import Lottie from "lottie-react";
+import loadingAnimation from "../../../public/loadingAnimation.json";
 
 const PaymentForm = ({ enrolledClass, isLoading, id }) => {
   const { refetch } = useEnrollClass();
@@ -93,7 +95,16 @@ const PaymentForm = ({ enrolledClass, isLoading, id }) => {
   };
 
   if (isLoading) {
-    <p>loading...</p>;
+    return (
+      <div className=" max-w-screen-lg mx-auto">
+        {" "}
+        <Lottie
+          className=" w-[400px] mx-auto"
+          animationData={loadingAnimation}
+          loop={true}
+        />
+      </div>
+    );
   }
 
   return (

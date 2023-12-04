@@ -5,6 +5,9 @@ import { FaGoogle } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import useAuth from "../../Hooks/useAuth";
 import toast from "react-hot-toast";
+import Lottie from "lottie-react";
+import loginAnimation from "../../../public/login-animation.json";
+
 const Login = () => {
   const { userSignIn } = useAuth();
   const navigate = useNavigate();
@@ -88,7 +91,13 @@ const Login = () => {
               </div>
             </div>
           </div>
-          <div className="flex-1 bg-green-100 text-center hidden lg:flex"></div>
+          <div className="flex-1 bg-green-100 text-center hidden lg:flex">
+            <Lottie
+              className=" w-[400px] mx-auto"
+              animationData={loginAnimation}
+              loop={true}
+            />
+          </div>
         </div>
       </div>
     </div>

@@ -36,7 +36,7 @@ const Description = () => {
     <>
       {" "}
       <h2 className=" text-4xl text-center font-bold mt-6 border-b-2 border-gray-700 px-2 pb-4 w-fit mx-auto shadow-md">
-        About Our Statistics
+        About Our Platform
       </h2>
       <div className="bg-gradient-to-r my-10 from-[#ddd] via-[#888] to-[#346B8D] flex justify-center items-center">
         <div>
@@ -48,7 +48,7 @@ const Description = () => {
           ></Chart>
         </div>
         <img
-          className=" w-full h-full"
+          className=" hidden lg:flex w-full h-full"
           src="https://i.ibb.co/ZXpsd0z/stat.png"
           alt=""
         />
